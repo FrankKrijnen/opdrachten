@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+</head>
+<style type="text/css">
+    #box1 {
+        border: 1px solid;
+        width: 400px;
+        height: 400px;
+        position: relative;
+    }
+    #box2 {
+        background-color: purple;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        left: 150px;
+        top: 0px;
+    }
+    #twaalf {
+        position: absolute;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 90px;  
+        left: 150px;
+        top: 0px;
+        font-size: 50px;
+        font-weight: bold;
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+    #drie {
+        position: absolute;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 90px;  
+        left: 300px;
+        top: 150px;
+        font-size: 50px;
+        font-weight: bold;
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+    #zes {
+        text-align: center;
+        vertical-align: middle;
+        line-height: 100px;  
+        position: absolute;
+        left: 150px;
+        top: 300px;
+        font-size: 50px;
+        font-weight: bold;
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+    #negen {
+        position: absolute;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 90px;  
+        left: 0px;
+        top: 150px;
+        font-size: 50px;
+        font-weight: bold;
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+</style>
+<body><center>
+    
+    <div id="box1">
+    <div id="twaalf">12</div>
+    <div id="drie">3</div>
+    <div id="zes">6</div>
+    <div id="negen">9</div>
+        <div id="box2">
+            
+        </div>
+    </div>
+    <button id="_start">start</button>
+    <button id="_stop">stop</button>
+    </center>
+</body>
+<script>
+    var teller = 0;
+    $("#_start").click(function(){
+        var div = $("#box2");
+        var text12 = $("#twaalf");
+        var text3 = $("#drie");
+        var text6 = $("#zes");
+        var text9 = $("#negen");
+        if (teller == 0){
+            text12.animate({opacity:1},{duration: 600})
+            div.animate({left: "300px", top: "150px", borderTopLeftRadius: "15px", borderTopRightRadius: "15px", borderBottomLeftRadius: "15px", borderBottomRightRadius: "15px"},{duration: 1000, complete: function(){
+            teller = 1
+            console.log(teller)
+            text3.animate({opacity:1},{duration: 600})
+            div.animate({left: "150px", top: "300px", borderTopRightRadius: "30px", borderTopLeftRadius: "30px", borderBottomLeftRadius: "30px", borderBottomRightRadius: "30px"},{duration: 1000, complete: function(){
+            teller = 2
+            console.log(teller)
+            text6.animate({opacity:1},{duration: 600})
+            div.animate({left: "0px", top: "150px", borderBottomLeftRadius: "45px", borderTopLeftRadius: "45px", borderTopRightRadius: "45px", borderBottomRightRadius: "45px"},{duration: 1000, complete: function(){
+            teller = 3
+            console.log(teller)
+            text9.animate({opacity:1},{duration: 600})
+            div.animate({left: "150px", top: "0px", borderBottomRightRadius: "60px", borderTopLeftRadius: "60px", borderTopRightRadius: "60px", borderBottomLeftRadius: "60px"},{duration: 1000, complete: function(){
+            teller = 0
+            console.log(teller)
+                    }});
+                }});
+            }});
+        }});
+    }
+        if (teller == 1){
+            text3.animate({opacity:1},{duration: 600})
+            div.animate({left: "150px", top: "300px", borderTopRightRadius: "30px", borderTopLeftRadius: "30px", borderBottomLeftRadius: "30px", borderBottomRightRadius: "30px"},{duration: 1000, complete: function(){
+            teller = 2
+            console.log(teller)
+            text6.animate({opacity:1},{duration: 600})
+            div.animate({left: "0px", top: "150px", borderBottomLeftRadius: "45px", borderTopLeftRadius: "45px", borderTopRightRadius: "45px", borderBottomRightRadius: "45px"},{duration: 1000, complete: function(){
+            teller = 3
+            console.log(teller)
+            text9.animate({opacity:1},{duration: 600})
+            div.animate({left: "150px", top: "0px", borderBottomRightRadius: "60px", borderTopLeftRadius: "60px", borderTopRightRadius: "60px", borderBottomLeftRadius: "60px"},{duration: 1000, complete: function(){
+            teller = 0
+            console.log(teller)
+                    }});
+                }});
+            }});
+        };
+        if (teller == 2){
+            text6.animate({opacity:1},{duration: 600})
+            div.animate({left: "0px", top: "150px", borderBottomLeftRadius: "45px", borderTopLeftRadius: "45px", borderTopRightRadius: "45px", borderBottomRightRadius: "45px"},{duration: 1000, complete: function(){
+            teller = 3
+            console.log(teller)
+            text9.animate({opacity:1},{duration: 600})
+            div.animate({left: "150px", top: "0px", borderBottomRightRadius: "60px", borderTopLeftRadius: "60px", borderTopRightRadius: "60px", borderBottomLeftRadius: "60px"},{duration: 1000, complete: function(){
+            teller = 0
+            console.log(teller)
+                    }});
+                }});
+            };
+        if (teller == 3){
+            text9.animate({opacity:1},{duration: 600})
+            div.animate({left: "150px", top: "0px", borderBottomRightRadius: "60px", borderTopLeftRadius: "60px", borderTopRightRadius: "60px", borderBottomLeftRadius: "60px"},{duration: 1000, complete: function(){
+            teller = 0
+            console.log(teller)
+                    }});    
+                };
+            });
+    $("#_stop").click(function() {
+        $("#box2").stop();
+    });
+    
+</script>
+</html>
