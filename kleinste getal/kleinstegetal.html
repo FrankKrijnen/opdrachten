@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+</head>
+<style>
+    #kaart1 {
+        cursor: pointer;
+        background-color: red;
+        width: 200px;
+        height: 270px;
+        border: 6px black solid;
+        border-radius: 7px;
+    }
+    #kaart2 {
+        cursor: pointer;
+        background-color: red;
+        width: 200px;
+        height: 270px;
+        border: 6px black solid;
+        border-radius: 7px;
+    }
+    .wrap {
+        width: 700px;
+        height: 270px;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        display: flex;
+        justify-content: space-around;
+        margin-top: -185px;
+        margin-left: -350px;
+    }
+    #cijfer1, #cijfer2 {
+        line-height: 245px;
+        color: black;
+        font-weight: bold;
+        font-size: 70px;
+    }
+    #gelijk {
+        cursor: pointer;
+        height: 270px;
+        line-height: 245px;
+        color: white;
+        font-weight: bold;
+        font-size: 30px;
+        border: 6px black solid;
+        border-radius: 7px;
+        width: 100px;
+        background-color: grey;
+    }
+    #tekst {
+        position: absolute;
+        top: 22%;
+        text-align: center;
+        color: red;
+        font-weight: bold;
+        font-size: 30px;
+        width: 100%;
+        height: 20px;
+    }
+</style>
+<body>
+    <div id="tekst"></div>
+<center class="wrap">
+    <div id="kaart1"><span id="cijfer1"></span></div>
+    <div id="gelijk">Gelijk</div>
+    <div id="kaart2"><span id="cijfer2"></span></div>
+</center>
+<h1>Kies het kleinste getal</h1><br>
+<button id="start">start</button>
+<button id="volgende">volgende</button>
+</body>
+<script>
+ 
+    $(document).ready(function(){
+        $("#start, #volgende").click(function(){
+            random1 = Math.floor((Math.random() * 10) + 1);
+            random2 = Math.floor((Math.random() * 10) + 1);
+            console.log(random1)
+            console.log(random2)
+            nummer1 = random1
+            nummer2 = random2
+            $("#kaart1").css("background-color","red");
+            $("#kaart2").css("background-color","red");
+            $("#tekst").html("")
+            $("#cijfer1").html(random1);
+            $("#cijfer2").html(random2);
+        });
+    });
+    $("#kaart1").click(function() {
+        if (nummer1 < nummer2){
+            $("#kaart1").css("background-color","green");
+            $("#kaart2").css("background-color","green");
+            $("#tekst").html("GOED!!! Kies volgende")
+            $("#tekst").css("color","green")
+        }
+        else {
+            $("#tekst").html("Fout!!! Probeer opnieuw")
+            $("#tekst").css("color","red")
+        }
+    });
+    $("#kaart2").click(function() {
+        if (nummer2 < nummer1){
+            $("#kaart1").css("background-color","green");
+            $("#kaart2").css("background-color","green");
+            $("#tekst").html("GOED!!! Kies volgende")
+            $("#tekst").css("color","green")
+        }
+        else {
+            $("#tekst").html("Fout!!! Probeer opnieuw")
+            $("#tekst").css("color","red")
+        }
+    });
+    $("#gelijk").click(function() {
+        if (nummer1 == nummer2){
+            $("#kaart1").css("background-color","green");
+            $("#kaart2").css("background-color","green");
+            $("#tekst").html("GOED!!! Kies volgende")
+            $("#tekst").css("color","green")
+        }
+        else {
+            $("#tekst").html("Fout!!! Probeer opnieuw")
+            $("#tekst").css("color","red")
+        }
+    });
+    
+    
+    
+</script>
+</html>
